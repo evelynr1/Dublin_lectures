@@ -1,0 +1,16 @@
+/* Print-friendly output (accessibility: helpful for planning offline) */
+body{
+  background: #fff !important;
+  color: #000 !important;
+}
+.site-header, .site-nav, .skip-link{
+  display: none !important;
+}
+.card, .intro{
+  box-shadow: none !important;
+  border: 1px solid #000 !important;
+}
+a{
+  color: #000 !important;
+  text-decoration: underline !important;
+}

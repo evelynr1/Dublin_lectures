@@ -1,0 +1,227 @@
+/* Theme: green, parchment, dark gray */
+:root{
+  --green: #1f6f3f;
+  --green-dark: #14502d;
+  --parchment: #f4eedc;
+  --ink: #1f2328;        /* dark gray */
+  --muted: #4b5563;
+  --card: #fffaf0;       /* warm light */
+  --border: #d9d2bf;
+
+  --focus: #0b5fff;      /* accessible focus ring */
+  --radius: 14px;
+  --shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  color-scheme: light;
+}
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--parchment);
+}
+
+.container{
+  width: min(1000px, 92vw);
+  margin: 0 auto;
+}
+
+.skip-link{
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  background: #ffffff;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.skip-link:focus{
+  transform: translateY(0);
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.site-header{
+  background: linear-gradient(180deg, var(--green) 0%, var(--green-dark) 100%);
+  color: #fff;
+  padding: 2rem 0 1.2rem;
+  border-bottom: 4px solid rgba(255,255,255,.18);
+}
+.site-title{
+  margin: 0;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  letter-spacing: 0.2px;
+}
+.site-tagline{
+  margin: 0.25rem 0 1rem;
+  color: rgba(255,255,255,.88);
+}
+
+.site-nav ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.site-nav a{
+  display: inline-block;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,.35);
+}
+.site-nav a:hover{
+  background: rgba(255,255,255,.12);
+}
+.site-nav a:focus{
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.site-nav a[aria-current="page"]{
+  background: rgba(255,255,255,.18);
+  border-color: rgba(255,255,255,.65);
+}
+
+main{
+  padding: 1.6rem 0 3rem;
+}
+
+.intro{
+  background: rgba(255,255,255,.55);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  box-shadow: 0 1px 0 rgba(0,0,0,.03);
+}
+
+.jump-nav ul{
+  padding-left: 1.1rem;
+  margin: 0.75rem 0 0;
+  columns: 2;
+  column-gap: 1.5rem;
+}
+.jump-nav a{
+  color: var(--green-dark);
+}
+.jump-nav a:focus{
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.card{
+  margin-top: 1.2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.1rem;
+}
+
+.card-header{
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.9rem;
+}
+.card h2{
+  margin: 0;
+  font-size: 1.35rem;
+}
+.meta{
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 780px){
+  .grid{
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: start;
+  }
+}
+
+h3{
+  margin-top: 0;
+  font-size: 1.05rem;
+}
+
+a{
+  color: var(--green-dark);
+}
+a:hover{
+  text-decoration-thickness: 2px;
+}
+a:focus{
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.checklist{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.checklist li{
+  margin: 0.5rem 0;
+}
+.checklist input[type="checkbox"]{
+  width: 1.05rem;
+  height: 1.05rem;
+  vertical-align: middle;
+}
+.checklist input[type="checkbox"]:focus{
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.plan{
+  padding-left: 1.2rem;
+  margin: 0;
+}
+.plan li{
+  margin: 0.9rem 0;
+}
+.plan h3{
+  margin: 0 0 0.25rem;
+}
+
+.site-footer{
+  margin-top: 1.6rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+kbd{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.95em;
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  padding: 0.05rem 0.35rem;
+  border-radius: 6px;
+  background: rgba(255,255,255,.7);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
