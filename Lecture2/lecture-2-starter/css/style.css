@@ -8,7 +8,8 @@
   --bg:        #d8d4d5;
   --surface:   #ffffff;
   --ink:       #1a1a1a;
-  --muted:     #53605d;
+  /* --muted:     #53605d; */
+  --muted:     #414c4a; /*trying to make this pass the accessibility checker*/
   --accent:    #d8d4d5;
   --accent-ink: #384d48;
   --links:     #384d48;
