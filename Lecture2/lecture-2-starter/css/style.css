@@ -8,10 +8,10 @@
   --bg:        #d8d4d5;
   --surface:   #ffffff;
   --ink:       #1a1a1a;
-  /* --muted:     #53605d; */
-  --muted:     #414c4a; /*trying to make this pass the accessibility checker*/
+  --muted:     #53605d;
   --accent:    #d8d4d5;
-  --accent-ink: #384d48;
+  /* --accent-ink: #384d48; */
+  --accent-ink: #0b0f0e;
   --links:     #384d48;
   --radius:    0.5rem;
   --shadow:    0 1px 3px rgba(0, 0, 0, 0.08);
