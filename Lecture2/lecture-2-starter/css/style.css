@@ -115,10 +115,30 @@ figcaption {
    ============================================================= */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
   /* change above line */
+  grid-template-columns: 90%;
+  justify-content: space-around;
   gap: 1rem;
 }
+
+@media screen and (min-width: 778px) { 
+  /* body {
+    background-color: yellow;
+  } */
+  .grid{
+    grid-template-columns: 45% 45%;
+  }
+    }
+
+@media screen and (min-width: 1000px) { 
+  /* body {
+    background-color: purple;
+  } */
+  .grid{
+    grid-template-columns: 30% 30% 30%;
+  }
+    }
 
 /* =============================================================
    3. SECTION 2 — FLEX GALLERY  — TODO
@@ -154,21 +174,71 @@ footer {
       Add mobile-first @media (min-width: ...) breakpoints here
       for any layout that needs to change across screen sizes.
    ============================================================= */
-
+    /* above under the grid section, where we put it in class */
 
 /* =============================================================
    5. PRINT — TODO
       @media print { ... }
    ============================================================= */
-
+@media print {
+      body {
+        background: #fff;
+        color: #000;
+        font-size: 11pt;
+        max-width: none;
+        padding: 0;
+      }
+      h1, h2, h3 { page-break-after: avoid; }
+      img { max-width: 100% !important; }
+      a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 90%;
+        color: #555;
+      }
+      .gallery { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+      nav, .skip-on-print { display: none !important; }
+      .nav-only-print { display: block; font-size: 0.9rem; color: #555; margin-top: 0.5rem; }
+    }
 
 /* =============================================================
    6. PREFERS-REDUCED-MOTION — TODO
       @media (prefers-reduced-motion: reduce) { ... }
    ============================================================= */
+    @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+    }
 
+
+    figure {
+    background: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    animation: fade-in 0.5s ease-out both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    
 
 /* =============================================================
    7. PREFERS-COLOR-SCHEME — TODO
       @media (prefers-color-scheme: dark) { :root { ... } }
    ============================================================= */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:      #121212;
+        --surface: #1e1e1e;
+        --ink:     #f0f0f0;
+        --muted:   #a8a8a8;
+        --accent:  #6cb1e0;
+        --shadow:  0 1px 4px rgba(0,0,0,0.5);
+      }
+    }
