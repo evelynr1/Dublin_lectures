@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wanderlines — Lecture 2 Starter</title>
+  <!-- Link the reset and style .css files -->
+   <link rel="stylesheet" href="css/reset.css">
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       LARGE STICKY HEADER
+       Required: must remain visible while the user scrolls.
+       ============================================================ -->
+  <header>
+    <div class="brand">
+      <h1>Wanderlines</h1>
+      <p class="tagline">A travel blog about how you get there.</p>
+    </div>
+    <nav>
+      <a href="#gallery-grid">Grid Gallery</a>
+      <a href="#gallery-flex">Flex Gallery</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         SECTION 1 — Photo gallery, styled with display: grid + minmax()
+         At least 10 cards. Each card = image + heading + description.
+         ============================================================ -->
+    <section id="grid-gallery">
+      <header>
+        <h2>Ireland — Grid Gallery</h2>
+        <p>Style this <code>.grid</code> with <strong>display: grid</strong> and
+        <code>repeat(auto-fill, minmax(220px, 1fr))</code> in styles.css.</p>
+      </header>
+
+      <div class="grid">
+        <figure>
+          <img src="https://picsum.photos/seed/dublin1/640/420"
+               alt="REPLACE: specific description of what the photo shows">
+          <figcaption>Dublin city centre
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/cliffsofmoher/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Cliffs of Moher</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/galway/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Galway</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/kerry/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Ring of Kerry</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/cork/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Cork</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/giants/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Giant's Causeway</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/connemara/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Connemara</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/aran/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Aran Islands</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/wicklow/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Wicklow Mountains</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/belfast/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Belfast</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/kilkenny/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Kilkenny</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2 — Photo gallery, styled with display: flex
+         At least 10 cards. Same content shape; different layout.
+         ============================================================ -->
+    <section id="flex-gallery">
+      <header>
+        <h2>Food & Drink — Flex Gallery</h2>
+        <p>Style this <code>.flex</code> with <strong>display: flex</strong>,
+        <code>flex-wrap: wrap</code>, and <code>flex: 1 0 250px; </code> on the figures.</p>
+      </header>
+
+      <div class="flex">
+        <figure>
+          <img src="https://picsum.photos/seed/breakfast/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Full Irish breakfast</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/pub/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Pub in Temple Bar</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/seafood/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Seafood chowder</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/scones/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Cream tea</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/whiskey/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Distillery tour</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/coffee/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Morning coffee</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/farmers/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Farmers market</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/cheese/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Local cheese plate</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/stew/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Beef and Guinness stew</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/bread/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Soda bread</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/dessert/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>Apple tart</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/pint/640/420"
+               alt="REPLACE: specific description">
+          <figcaption>The perfect pint</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About this site</h2>
+      <p>This is a class assignment. Replace this paragraph with a short blurb
+      about your trip and what kind of accessibility considerations you put into
+      the design.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Colleen van Lent; Built for Accessible Web Design Lecture 2</p>
+  </footer>
+
+</body>
+</html>

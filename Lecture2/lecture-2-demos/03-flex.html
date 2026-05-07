@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo 03 — display: flex</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      max-width: 64rem;
+      margin-inline: auto;
+      background: #fafafa;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+    h1   { margin-top: 0; }
+    h2   { margin-top: 2rem; border-bottom: 2px solid #4a7c59; padding-bottom: 0.25rem; }
+    code { background: #eee; padding: 0.05em 0.3em; border-radius: 0.2em; font-size: 0.9em; }
+    p    { color: #595959; }
+
+    .demo {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .chip {
+      background: #d6e8f5;
+      color: #1a1a1a;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    /* 1. Nav bar — title left, links right, vertically centered */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 1rem;
+      background: #2a6f97;
+      color: white;
+      border-radius: 0.5rem;
+    }
+    .nav-links { display: flex; gap: 1rem; list-style: none; padding: 0; margin: 0; }
+    .nav a { color: white; text-decoration: none; padding: 0.25rem 0.5rem; border-radius: 0.25rem; }
+    .nav a:hover { background: rgba(255,255,255,0.2); }
+
+    /* 2. Card row — wrap when out of room */
+    .card-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .card-row > .item {
+      flex: 1 1 220px;     /* grow, shrink, basis */
+      min-width: 0;        /* allow shrinking */
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+
+    /* 3. Center anything */
+    .center-box {
+      display: flex;
+      place-items: center;
+      justify-content: center;
+      min-height: 14rem;
+      background: linear-gradient(135deg, #2a6f97, #4a7c59);
+      color: white;
+      border-radius: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    /* 4. Tag list */
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    /* 5. Stacked column with gap */
+    .stack { display: flex; flex-direction: column; gap: 0.75rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Demo 03 — <code>display: flex</code></h1>
+  <p>Flex is for one-dimensional layouts. Five patterns you'll write all the time.</p>
+
+  <h2>1. Nav bar — <code>space-between</code> + <code>align-items: center</code></h2>
+  <div class="demo">
+    <nav class="nav" aria-label="Demo nav">
+      <strong>Wanderlines</strong>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <h2>2. Card row — <code>flex: 1 1 220px</code></h2>
+  <p>Cards share space evenly, wrap when below 220px each. Resize me.</p>
+  <div class="demo card-row">
+    <div class="item"><strong>Card 1</strong><p>flex: 1 1 220px</p></div>
+    <div class="item"><strong>Card 2</strong><p>same</p></div>
+    <div class="item"><strong>Card 3</strong><p>same</p></div>
+    <div class="item"><strong>Card 4</strong><p>same</p></div>
+    <div class="item"><strong>Card 5</strong><p>wraps when needed</p></div>
+  </div>
+
+  <h2>3. Dead-center anything</h2>
+  <div class="demo center-box">Centered.</div>
+
+  <h2>4. Tag list — <code>flex-wrap</code> + <code>gap</code></h2>
+  <div class="demo">
+    <div class="tag-list" role="list">
+      <span class="chip" role="listitem">accessibility</span>
+      <span class="chip" role="listitem">travel</span>
+      <span class="chip" role="listitem">photography</span>
+      <span class="chip" role="listitem">ireland</span>
+      <span class="chip" role="listitem">food</span>
+      <span class="chip" role="listitem">notes</span>
+      <span class="chip" role="listitem">misc</span>
+    </div>
+  </div>
+
+  <h2>5. Stacked column with gap</h2>
+  <div class="demo">
+    <div class="stack">
+      <div class="chip">Item 1</div>
+      <div class="chip">Item 2</div>
+      <div class="chip">Item 3</div>
+    </div>
+  </div>
+
+</body>
+</html>

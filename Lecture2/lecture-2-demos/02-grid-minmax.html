@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo 02 — display: grid + minmax()</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      max-width: 64rem;
+      margin-inline: auto;
+      background: #fafafa;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+
+    h1   { margin-top: 0; }
+    h2   { margin-top: 2rem; border-bottom: 2px solid #2a6f97; padding-bottom: 0.25rem; }
+    code { background: #eee; padding: 0.05em 0.3em; border-radius: 0.2em; font-size: 0.9em; }
+    p    { color: #595959; }
+
+    .card {
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      margin: 0;
+    }
+    .card img    { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+    .card figcap { padding: 0.5rem 0.75rem; }
+    .card h3     { margin: 0 0 0.15rem; font-size: 0.95rem; }
+    .card p      { margin: 0; font-size: 0.85rem; color: #595959; }
+
+    /* ----- 1. Fixed columns (rigid) ----- */
+    .grid-fixed {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    /* ----- 2. minmax + auto-fill (responsive without media queries) ----- */
+    .grid-autofill {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+
+    /* ----- 3. minmax + auto-fit (collapses empty tracks; cards stretch) ----- */
+    .grid-autofit {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+
+    /* ----- 4. Page layout with named areas ----- */
+    .layout {
+      display: grid;
+      grid-template-areas:
+        "header  header"
+        "sidebar main"
+        "footer  footer";
+      grid-template-columns: minmax(180px, 1fr) 3fr;
+      gap: 0.5rem;
+      min-height: 18rem;
+    }
+    .layout > * { padding: 0.75rem 1rem; border-radius: 0.25rem; color: white; }
+    .layout .h  { grid-area: header;  background: #2a6f97; }
+    .layout .s  { grid-area: sidebar; background: #4a7c59; }
+    .layout .m  { grid-area: main;    background: #595959; }
+    .layout .f  { grid-area: footer;  background: #1a1a1a; }
+  </style>
+</head>
+<body>
+
+  <h1>Demo 02 — <code>display: grid</code> + <code>minmax()</code></h1>
+  <p><strong>Resize the window slowly.</strong> Watch what each grid does.</p>
+
+  <h2>1. Fixed: three equal columns at every size</h2>
+  <p><code>grid-template-columns: repeat(3, 1fr);</code> — rigid; cards squish on phones.</p>
+  <div class="grid-fixed">
+    <figure class="card"><img src="https://picsum.photos/seed/g1/400/250" alt=""><figcaption class="figcap"><h3>Card 1</h3><p>1fr 1fr 1fr</p></figcaption></figure>
+    <figure class="card"><img src="https://picsum.photos/seed/g2/400/250" alt=""><figcaption class="figcap"><h3>Card 2</h3><p>Always 3 across</p></figcaption></figure>
+    <figure class="card"><img src="https://picsum.photos/seed/g3/400/250" alt=""><figcaption class="figcap"><h3>Card 3</h3><p>Cramped on mobile</p></figcaption></figure>
+  </div>
+
+  <h2>2. <code>auto-fill</code> + <code>minmax(200px, 1fr)</code></h2>
+  <p>Pack as many 200-px-min columns as fit; each can grow to 1fr. <strong>Responsive without media queries.</strong></p>
+  <div class="grid-autofill">
+    <figure class="card"><img src="https://picsum.photos/seed/h1/400/250" alt=""><figcaption class="figcap"><h3>Autofill 1</h3><p>min 200px</p></figcaption></figure>
+    <figure class="card"><img src="https://picsum.photos/seed/h2/400/250" alt=""><figcaption class="figcap"><h3>Autofill 2</h3><p>grows to 1fr</p></figcaption></figure>
+    <figure class="card"><img src="https://picsum.photos/seed/h3/400/250" alt=""><figcaption class="figcap"><h3>Autofill 3</h3><p>wraps as needed</p></figcaption></figure>
+    <figure class="card"><img src="https://picsum.photos/seed/h4/400/250" alt=""><figcaption class="figcap"><h3>Autofill 4</h3><p>auto-fill keeps</p></figcaption></figure>
+    <figure class="card"><img src="https://picsum.photos/seed/h5/400/250" alt=""><figcaption class="figcap"><h3>Autofill 5</h3><p>empty tracks</p></figcaption></figure>
+    <figure class="card"><img src="https://picsum.photos/seed/h6/400/250" alt=""><figcaption class="figcap"><h3>Autofill 6</h3><p>resize me!</p></figcaption></figure>
+  </div>
+
+  <h2>3. <code>auto-fit</code> (cards stretch to fill the row)</h2>
+  <p>Same as above, but with only a few items, the existing cards stretch to fill — handy or distracting depending on your design.</p>
+  <div class="grid-autofit">
+    <figure class="card"><img src="https://picsum.photos/seed/k1/400/250" alt=""><figcaption class="figcap"><h3>Autofit 1</h3><p>stretches</p></figcaption></figure>
+    <figure class="card"><img src="https://picsum.photos/seed/k2/400/250" alt=""><figcaption class="figcap"><h3>Autofit 2</h3><p>to fill</p></figcaption></figure>
+  </div>
+
+  <h2>4. Page layout with <code>grid-template-areas</code></h2>
+  <p>Named areas keep the source order readable while letting the visual layout differ.</p>
+  <div class="layout">
+    <div class="h">header</div>
+    <div class="s">sidebar</div>
+    <div class="m">main</div>
+    <div class="f">footer</div>
+  </div>
+
+</body>
+</html>

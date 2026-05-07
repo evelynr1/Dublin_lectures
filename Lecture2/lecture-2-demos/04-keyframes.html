@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo 04 — @keyframes animation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      max-width: 50rem;
+      margin-inline: auto;
+      background: #fafafa;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+    h1   { margin-top: 0; }
+    h2   { margin-top: 2rem; border-bottom: 2px solid #2a6f97; padding-bottom: 0.25rem; }
+    code { background: #eee; padding: 0.05em 0.3em; border-radius: 0.2em; font-size: 0.9em; }
+    p    { color: #595959; }
+
+    /* ----- 1. Fade in on load ----- */
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      animation: fade-in 0.5s ease-out both;
+    }
+
+    .card-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
+
+    /* stagger children */
+    .card-row .card:nth-child(2) { animation-delay: 0.08s; }
+    .card-row .card:nth-child(3) { animation-delay: 0.16s; }
+    .card-row .card:nth-child(4) { animation-delay: 0.24s; }
+    .card-row .card:nth-child(5) { animation-delay: 0.32s; }
+    .card-row .card:nth-child(6) { animation-delay: 0.4s;  }
+
+    /* ----- 2. Pulse on hover ----- */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.06); }
+    }
+
+    .cta {
+      display: inline-block;
+      background: #2a6f97;
+      color: white;
+      padding: 0.6rem 1.25rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+    .cta:hover,
+    .cta:focus-visible {
+      background: #1f4e6f;
+      animation: pulse 1.2s ease-in-out infinite;
+      outline: 3px solid transparent;
+    }
+
+    /* ----- 3. Looping background shimmer (illustrative) ----- */
+    @keyframes shimmer {
+      0%   { background-position: -120% 0; }
+      100% { background-position: 220%  0; }
+    }
+    .skeleton {
+      height: 1.2rem;
+      width: 60%;
+      border-radius: 0.25rem;
+      background: linear-gradient(90deg, #e6e6e6 0%, #f8f8f8 50%, #e6e6e6 100%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s linear infinite;
+      margin-bottom: 0.4rem;
+    }
+    .skeleton.short { width: 40%; }
+
+    /* ----- 4. Reduced motion override ----- */
+    @media (prefers-reduced-motion: reduce) {
+      .cta:hover,
+      .cta:focus-visible,
+      .skeleton {
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+        transition-duration: 0.01ms;
+      }
+    }
+
+    .note {
+      border-left: 4px solid #f2a900;
+      background: #fff8e6;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+      color: #5a4a00;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Demo 04 — <code>@keyframes</code> animation</h1>
+  <p>Reload the page to see the fade-in trigger again.</p>
+
+  <h2>1. Fade-in on load (with stagger)</h2>
+  <p>Each card fades in slightly later than the one before it, using <code>animation-delay</code>.</p>
+  <div class="card-row">
+    <div class="card"><strong>Card 1</strong><p>0s delay</p></div>
+    <div class="card"><strong>Card 2</strong><p>0.08s</p></div>
+    <div class="card"><strong>Card 3</strong><p>0.16s</p></div>
+    <div class="card"><strong>Card 4</strong><p>0.24s</p></div>
+    <div class="card"><strong>Card 5</strong><p>0.32s</p></div>
+    <div class="card"><strong>Card 6</strong><p>0.40s</p></div>
+  </div>
+
+  <h2>2. Pulse on hover</h2>
+  <p>Hover or tab to the button.</p>
+  <p><a href="#" class="cta">Plan my next trip</a></p>
+
+  <h2>3. Looping shimmer (think loading skeleton)</h2>
+  <div style="background: white; padding: 1rem; border-radius: 0.5rem;">
+    <div class="skeleton"></div>
+    <div class="skeleton short"></div>
+    <div class="skeleton"></div>
+  </div>
+
+  <h2>4. Respect <code>prefers-reduced-motion</code></h2>
+  <div class="note">
+    All of the above are wrapped in a <code>@media (prefers-reduced-motion: reduce)</code>
+    rule that flatlines the durations. Toggle "Reduce motion" in your OS, reload, and
+    nothing should animate.
+  </div>
+
+</body>
+</html>

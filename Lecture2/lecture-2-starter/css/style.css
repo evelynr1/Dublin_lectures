@@ -1,0 +1,174 @@
+/* =============================================================
+   Lecture 2 starter — your job is to fill in the TODO sections.
+   The base styling is here so the page is not ugly while you work.
+   Replace / extend, do not feel obligated to keep what you see.
+   ============================================================= */
+
+:root {
+  --bg:        #d8d4d5;
+  --surface:   #ffffff;
+  --ink:       #1a1a1a;
+  --muted:     #53605d;
+  --accent:    #d8d4d5;
+  --accent-ink: #384d48;
+  --links:     #384d48;
+  --radius:    0.5rem;
+  --shadow:    0 1px 3px rgba(0, 0, 0, 0.08);
+  --maxw:      72rem;
+}
+
+
+/* =============================================================
+   1. STICKY HEADER  — TODO: make this stick to the top of viewport.
+      It must be LARGE (use generous padding) and stay visible
+      while the user scrolls.
+   ============================================================= */
+header {
+  /* TODO: position: sticky; top: 0; z-index: ...;  */
+
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 1.5rem 1.25rem;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw + 0.5rem, 2.5rem);
+}
+
+.tagline {
+  margin: 0.25rem 0 0;
+  opacity: 0.9;
+}
+
+img{
+  width: 100%;
+}
+
+nav {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--accent-ink);
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- sections ---------- */
+section {
+  margin-block: 2.5rem;
+  padding-block: 1rem;
+}
+
+header h2 {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.4rem, 2vw + 0.5rem, 2rem);
+}
+
+header p {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+}
+
+/* ---------- card (shared between both galleries) ---------- */
+.card {
+  margin: 0;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.grid img, .flex img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+figcaption {
+  padding: 0.75rem 1rem 1rem;
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+#grid-gallery p, #flex-gallery p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* =============================================================
+   2. SECTION 1 — GRID GALLERY  — TODO
+      Use display: grid + minmax + auto-fill
+   ============================================================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* change above line */
+  gap: 1rem;
+}
+
+/* =============================================================
+   3. SECTION 2 — FLEX GALLERY  — TODO
+      Use display: flex + flex-wrap + flex shorthand on items
+   ============================================================= */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction:column-reverse; */
+  gap: 1rem; 
+}
+
+.flex figure {
+  flex: 1 0 100px; 
+  /* change above line */
+}
+
+.flex figure:nth-child(3n){
+  flex-grow: 3;
+
+  /* change above line */
+}
+
+/* ---------- footer ---------- */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--muted);
+}
+
+/* =============================================================
+   4. RESPONSIVE — TODO (later in class)
+      Add mobile-first @media (min-width: ...) breakpoints here
+      for any layout that needs to change across screen sizes.
+   ============================================================= */
+
+
+/* =============================================================
+   5. PRINT — TODO
+      @media print { ... }
+   ============================================================= */
+
+
+/* =============================================================
+   6. PREFERS-REDUCED-MOTION — TODO
+      @media (prefers-reduced-motion: reduce) { ... }
+   ============================================================= */
+
+
+/* =============================================================
+   7. PREFERS-COLOR-SCHEME — TODO
+      @media (prefers-color-scheme: dark) { :root { ... } }
+   ============================================================= */

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo 05 — media queries (mobile-first, print, motion, color-scheme)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* =========================================================
+       1. Custom properties (palette lives in one place)
+       ========================================================= */
+    :root {
+      --bg:      #fffaf3;
+      --surface: #ffffff;
+      --ink:     #1a1a1a;
+      --muted:   #595959;
+      --accent:  #2a6f97;
+      --shadow:  0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 1.5rem;
+      max-width: 64rem;
+      margin-inline: auto;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    h1   { margin-top: 0; }
+    h2   { margin-top: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.25rem; }
+    code { background: rgba(0,0,0,0.07); padding: 0.05em 0.3em; border-radius: 0.2em; font-size: 0.9em; }
+    p    { color: var(--muted); }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr;     /* mobile-first: single column */
+      gap: 1rem;
+    }
+    .card {
+      background: var(--surface);
+      border-radius: 0.5rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .card img    { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+    .card figcap { padding: 0.5rem 0.75rem; }
+    .card h3     { margin: 0 0 0.15rem; font-size: 1rem; }
+    .card p      { margin: 0; font-size: 0.9rem; }
+
+    .nav-only-print { display: none; }
+
+    /* =========================================================
+       2. Mobile-first: layer up with min-width
+       ========================================================= */
+    @media (min-width: 40rem) {       /* ~640px */
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 64rem) {       /* ~1024px */
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* =========================================================
+       3. Print
+       ========================================================= */
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+        font-size: 11pt;
+        max-width: none;
+        padding: 0;
+      }
+      h1, h2, h3 { page-break-after: avoid; }
+      img { max-width: 100% !important; }
+      a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 90%;
+        color: #555;
+      }
+      .gallery { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+      nav, .skip-on-print { display: none !important; }
+      .nav-only-print { display: block; font-size: 0.9rem; color: #555; margin-top: 0.5rem; }
+    }
+
+    /* =========================================================
+       4. prefers-reduced-motion
+       ========================================================= */
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card { animation: fade-in 0.5s ease-out both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* =========================================================
+       5. prefers-color-scheme: dark
+       ========================================================= */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:      #121212;
+        --surface: #1e1e1e;
+        --ink:     #f0f0f0;
+        --muted:   #a8a8a8;
+        --accent:  #6cb1e0;
+        --shadow:  0 1px 4px rgba(0,0,0,0.5);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Demo 05 — Media queries</h1>
+  <p>One page, four media query types: <strong>mobile-first min-width</strong>, <strong>print</strong>,
+  <strong>prefers-reduced-motion</strong>, and <strong>prefers-color-scheme</strong>.</p>
+
+  <p class="skip-on-print">
+    Try each test:
+  </p>
+  <ul class="skip-on-print">
+    <li>Resize the window from very narrow to wide — gallery goes 1→2→3 columns.</li>
+    <li>Press <kbd>Cmd</kbd>/<kbd>Ctrl</kbd>+P — sticky stuff is gone, link URLs print inline.</li>
+    <li>Toggle "Reduce motion" in your OS, reload — the fade-in stops.</li>
+    <li>Toggle dark mode in your OS — the palette flips with no JS.</li>
+  </ul>
+
+  <p class="nav-only-print">Printed from the lecture-2-demos. Visit
+  <a href="https://example.com">example.com</a> for the live version.</p>
+
+  <h2>Sample gallery</h2>
+  <div class="gallery">
+    <figure class="card">
+      <img src="https://picsum.photos/seed/m1/600/375" alt="">
+      <figcaption class="figcap"><h3>One</h3><p>Mobile-first: starts as a single column.</p></figcaption>
+    </figure>
+    <figure class="card">
+      <img src="https://picsum.photos/seed/m2/600/375" alt="">
+      <figcaption class="figcap"><h3>Two</h3><p>40rem and up: two columns.</p></figcaption>
+    </figure>
+    <figure class="card">
+      <img src="https://picsum.photos/seed/m3/600/375" alt="">
+      <figcaption class="figcap"><h3>Three</h3><p>64rem and up: three columns.</p></figcaption>
+    </figure>
+    <figure class="card">
+      <img src="https://picsum.photos/seed/m4/600/375" alt="">
+      <figcaption class="figcap"><h3>Four</h3><p>Animated in with a fade.</p></figcaption>
+    </figure>
+    <figure class="card">
+      <img src="https://picsum.photos/seed/m5/600/375" alt="">
+      <figcaption class="figcap"><h3>Five</h3><p>Reduced-motion disables it.</p></figcaption>
+    </figure>
+    <figure class="card">
+      <img src="https://picsum.photos/seed/m6/600/375" alt="">
+      <figcaption class="figcap"><h3>Six</h3><p>Dark mode flips the palette.</p></figcaption>
+    </figure>
+  </div>
+
+</body>
+</html>
