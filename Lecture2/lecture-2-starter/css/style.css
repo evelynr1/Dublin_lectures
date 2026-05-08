@@ -243,3 +243,27 @@ footer {
         --shadow:  0 1px 4px rgba(0,0,0,0.5);
       }
     }
+
+
+
+    /* masking the images with .png files to make them visually look the same size */
+    /* code from w3schools */
+    .mask1 {
+      -webkit-mask-image: url(../images/w3logo.png);
+      mask-image: url(../images/w3logo.png);
+      mask-repeat: no-repeat;    
+    }
+
+    .mask2 {
+      -webkit-mask-image: url(../images/heart.png);
+      mask-image: url(../images/heart.png);
+      mask-repeat: no-repeat;    
+      mask-position: center;
+    }
+    
+    .grid figure:nth-of-type(3n) {
+      -webkit-mask-image: url(../images/w3logo.png);
+      mask-image: url(../images/w3logo.png);
+      mask-repeat: no-repeat;   
+      mask-position: center;
+    }
