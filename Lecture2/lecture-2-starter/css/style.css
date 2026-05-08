@@ -260,8 +260,8 @@ footer {
       mask-repeat: no-repeat;    
       mask-position: center;
     }
-    
-    .grid figure:nth-of-type(3n) {
+
+    .grid figure:nth-of-type(3n) img {
       -webkit-mask-image: url(../images/w3logo.png);
       mask-image: url(../images/w3logo.png);
       mask-repeat: no-repeat;   
