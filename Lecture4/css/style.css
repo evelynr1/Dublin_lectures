@@ -1,0 +1,27 @@
+img{
+    border: 5px solid #007ba7;
+    border-radius: 20px;
+    width: 100%;
+}
+
+/* What does this section do? */
+/* It makes it so setting the image width includes border and padding, not just the width of the actual image */
+*{
+    box-sizing: border-box;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 90%;
+    justify-content: space-around;
+    align-items: center;
+
+    /* this border was to be able to see if the column was working */
+    /* border: 5px solid purple; */
+}
+
+@media screen and (min-width: 600px){
+    .grid{
+        grid-template-columns: 45% 45%;
+    }
+}
