@@ -1,0 +1,25 @@
+img {
+    border: 5px solid #2A52BE;
+    border-radius: 20px;
+    width: 100%;
+    /* gap: 5px; */
+}
+
+/* tells things that 100% should account for padding and border */
+*{
+    box-sizing: border-box;
+}
+
+/* add media query to be 1,2,3 column grid depending on screen size */
+.grid{
+    display: grid;
+    grid-template-columns: 98%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media screen and (min-width: 600px){
+    .grid{
+        grid-template-columns: 45% 45%;
+    }
+}
