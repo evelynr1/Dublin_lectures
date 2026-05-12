@@ -81,6 +81,10 @@ nav ul li a{
     /* font-size: 20px; */
 }
 
+nav ul li {
+  padding: 0px 10px;
+}
+
 .gallery{
   display: grid;
   grid-template-columns: 100%;
