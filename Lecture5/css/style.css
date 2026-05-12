@@ -11,6 +11,13 @@
   box-sizing: border-box;
 }
 
+img{
+  border: 2px solid var(--accent1);
+  border-radius: 25px;
+  padding: 2px;
+  margin: 2px;
+}
+
 nav {
   color: var(--ink);
   background-color: var(--parchment);
@@ -47,9 +54,10 @@ main section{
   margin: 5px;
 }
 
-/* footer{
-
-} */
+footer{
+  padding-top: 20px;
+  padding-left: 10px;
+}
 
 /* change this styling later. make it bold and accent2, not uppercase */
 .current a{
@@ -92,16 +100,40 @@ nav ul li {
   justify-content: space-around;
 }
 
+/* .welcome{
+  background-color: orange;
+}
+
+.featured{
+  background-color: green;
+} */
+
+
+/* docklands page text spacing */
+#reflection, #guide {
+  padding: 30px 0px;
+}
+
+h2{
+  font-size: 1.5em;
+  padding-top: 30px;
+}
+
 
 /* media queries for 2 columns for tablet size and 3 columns for desktop */
 @media screen and (min-width: 600px){
-    .grid{
+    .gallery{
         grid-template-columns: 45% 45%;
+    }
+    .side-by-side{
+      display: grid;
+      grid-template-columns: 30% 60%;
+      padding: 10px 10px 10px 10px;
     }
 }
 
 @media screen and (min-width: 1000px){
-    .grid{
+    .gallery{
         grid-template-columns: 30% 30% 30%;
     }
 }
