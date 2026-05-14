@@ -1,0 +1,16 @@
+:root {
+    --parchment: #f4f1de;
+    --ink: #001219;
+    --accent1: #E3876D;
+    --accent2: #3d405b;
+    --accent3: #81b29a;
+    --accent4: #f2cc8f;
+  /* --links:     #384d48; */
+}
+
+/* set text size, line height, color, background-color, */
+body{
+
+}
+
+/* add transitions, animations, and prefers-reduced-motion media query */

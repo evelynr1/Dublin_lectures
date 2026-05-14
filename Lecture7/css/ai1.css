@@ -1,0 +1,150 @@
+/* From Lecture 1 code */
+html {
+  color-scheme: light;
+}
+
+/* From lecture 1 code */
+.skip-link{
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  background: var(--accent2);
+  border: 2px solid var(--accent1);
+  border-radius: 10px;
+  color: var(--parchment);
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.skip-link:focus{
+  transform: translateY(0);
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* from google fonts */
+.atkinson-hyperlegible-regular {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.atkinson-hyperlegible-bold {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.atkinson-hyperlegible-regular-italic {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.atkinson-hyperlegible-bold-italic {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* from my version of lecture 2 starter */
+img{
+  width: 100%;
+}
+
+nav {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--accent-ink);
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  background: rgba(2    55, 255, 255, 0.15);
+}
+
+/* from cssbuttongenerator.com */
+/* nav ul {
+  font-size:15px;
+  font-family:Arial;
+  width:140px;
+  height:50px;
+  border-width:1px;
+  color:#fff;
+  border-color:#18ab29;
+  font-weight:bold;
+  border-top-left-radius:28px;
+  border-top-right-radius:28px;
+  border-bottom-left-radius:28px;
+  border-bottom-right-radius:28px;
+  text-shadow: 1px 1px 0px #2f6627;
+  background:#44c767;
+}
+
+.buttonClass:hover {
+  background: #5cbf2a
+} */
+
+/* from  https://codepen.io/Ilham-bouk/pen/qEOGXPy */
+/* I couldn't figure out how to get this to work so I commented it out */
+/* Style Three */
+/* details {
+  margin-bottom: 20px;
+  border-radius: 6px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  align-items: left;
+}
+
+summary {
+  list-style: none;
+  padding: 15px 20px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary {
+  border-bottom: 3px solid white;
+}
+
+nav p {
+  padding: 5px 20px 15px;
+}
+
+details.style-3 {
+  background-color: #D0E8C5;
+}
+
+.style-3 summary {
+  position: relative;
+}
+
+.style-3 summary::before, .style-3 summary::after {
+  content: "";
+  position: absolute;
+  border-top: 3px solid;
+  width: 16px;
+  height: 0;
+  right: 20px;
+  top: 50%;
+}
+
+.style-3 summary::after {
+  transform: rotate(90deg);
+}
+
+details[open].style-3 summary::after {
+  display: none;
+} */
