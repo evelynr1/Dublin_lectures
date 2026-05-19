@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Step 2 — Inline onclick with alert()</title>
+  <link rel="stylesheet" href="../css/styles.css">
+
+</head>
+<body>
+  <h1>Click the button</h1>
+
+  <!--
+    onclick="..." is an EVENT HANDLER ATTRIBUTE.
+    Whatever JavaScript you put inside the quotes runs when the button is clicked.
+    alert() pops up a built-in browser dialog.
+  -->
+  <button onclick="alert('Hello from JavaScript!')">Say hello</button>
+
+  <p>Try changing the message inside the quotes. Notice the single vs. double quotes:
+     the attribute uses double quotes, so the string inside uses single quotes.</p>
+
+   <button onclick="
+   document.querySelector('#name').innerHTML = 'Hi ' + prompt('What is your name?');">Introduce Yourself</button>
+    
+   <!-- add code to change the p tag so it says "hello [your name]" -->
+   <p id = "name"></p>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Step 1b — Fixed: script runs AFTER the element exists</title>
+  <link rel="stylesheet" href="../css/styles.css">
+
+</head>
+<body>
+  <h1 id="headline">Original heading</h1>
+  <p id="tagline">Original tagline.</p>
+
+  <div class="note">
+    <strong>Why this works:</strong> the &lt;script&gt; tag is at the BOTTOM of &lt;body&gt;,
+    so by the time it runs, the browser has already created the &lt;h1&gt; and &lt;p&gt;.
+    This is the same reason Lightbox and MixItUp tell you to put their scripts at the bottom.
+  </div>
+  <div class = "time">
+  
+  </div>
+
+  <!-- Script is AFTER the elements it modifies -->
+  <script>
+    // querySelector takes a CSS selector — same syntax you already know from CSS.
+    // "#headline" means "the element with id='headline'"
+    const headline = document.querySelector("#headline");
+    headline.innerHTML = "Evelyn";
+
+    // You can also select by class, by tag name, or by anything CSS lets you write.
+    const tagline = document.querySelector("#tagline");
+    tagline.innerHTML = "This paragraph was rewritten too.";
+
+    //change class "time" div to show the current time
+    const time = document.querySelector(".time");
+    time.innerHTML = new Date()
+
+    //how Colleen did it
+    // const date = new Date;
+    // document.querySelector(".time").innerHTML = date;
+
+    //change the color of the h1 to red and then change the background to yellow
+    //Instead of .innerHTML use .style.color
+
+    document.querySelector("h1").style.color = "red";
+    document.querySelector("h1").style.backgroundColor = "yellow";
+
+  </script>
+</body>
+</html>
+
+<!-- https://www.w3schools.com/JS/js_date_methods.asp -->
